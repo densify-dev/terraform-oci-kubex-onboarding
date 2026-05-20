@@ -71,23 +71,7 @@ terraform plan
 terraform apply
 ```
 
-A successful apply ends with:
-
-```
-Outputs:
-kubex_action          = "create"
-kubex_connection_id   = "2905dad4-2fcf-45f1-9a26-4db4ffb15c55"
-kubex_connection_name = "tenancyname-tf"
-kubex_verify_status = {
-  account_name   = "..."
-  platform       = "OCI"
-  status         = "true"
-  status_details = "..."
-}
-user_ocid = "ocid1.user.oc1..aaaabbbccc"
-```
-
-See [`examples/single-tenancy/`](examples/single-tenancy/) for more details.
+See [`examples/onboard-tenancy/`](examples/onboard-tenancy/) for more details.
 
 ## Inputs
 
