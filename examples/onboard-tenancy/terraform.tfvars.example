@@ -1,0 +1,21 @@
+# Copy this to terraform.tfvars and fill in your values, OR pass each one with
+# -var on the terraform apply command line.
+
+# --- Required ---
+tenancy_ocid       = "ocid1.tenancy.oc1..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+region             = "us-ashburn-1"
+kubex_api_base_url = "https://<your-instance>.kubex.ai"
+kubex_username     = "you@example.com"
+kubex_password     = "your-kubex-password"
+
+# --- OCI provider profile ---
+# Pick which ~/.oci/config profile to use.
+oci_config_profile = "dev" # use [dev] profile
+
+# --- Optional overrides (uncomment to change) ---
+# domain_name               = "Default"
+# service_user_name         = "kubex-data-collector"
+# service_user_display_name = "Kubex Data Collector"
+# group_name                = "Kubex"
+# policy_name               = "Kubex Data Collection Policy"
+# user_email                = "support@kubex.ai"
