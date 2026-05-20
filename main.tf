@@ -35,7 +35,7 @@ locals {
   effective_connection_name = (
     var.connection_name != ""
     ? var.connection_name
-    : "${data.oci_identity_tenancy.current.name}-terraform"
+    : "${data.oci_identity_tenancy.current.name}-tf"
   )
 }
 

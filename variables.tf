@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------------
+# Required Inputs
+# ---------------------------------------------------------------------------
+
 variable "tenancy_ocid" {
   description = "OCID of the OCI tenancy where Kubex resources will be created."
   type        = string
@@ -7,6 +11,36 @@ variable "region" {
   description = "OCI region, e.g. \"us-ashburn-1\"."
   type        = string
 }
+
+variable "kubex_api_base_url" {
+  description = "Base URL of your Kubex tenant (no trailing slash). Example: \"https://customer.kubex.ai\"."
+  type        = string
+}
+
+variable "kubex_username" {
+  description = "Kubex login username (typically an email). Used to obtain a bearer token via POST /api/v2/authorize."
+  type        = string
+}
+
+variable "kubex_password" {
+  description = "Kubex login password. Persisted to Terraform state — use an encrypted remote backend in production."
+  type        = string
+  sensitive   = true
+}
+
+# ---------------------------------------------------------------------------
+# OCI provider configuration
+# ---------------------------------------------------------------------------
+
+variable "oci_config_profile" {
+  description = "Name of the profile section in ~/.oci/config to use for OCI auth. Leave at 'DEFAULT' if you only have one profile or are running in Cloud Shell."
+  type        = string
+  default     = "DEFAULT"
+}
+
+# ---------------------------------------------------------------------------
+# Optional overrides
+# ---------------------------------------------------------------------------
 
 variable "domain_name" {
   description = "Display name of the Identity Domain to provision into."
@@ -44,24 +78,8 @@ variable "policy_name" {
   default     = "kubex-data-collection-policy-tf"
 }
 
-variable "kubex_api_base_url" {
-  description = "Base URL of your Kubex tenant (no trailing slash). Example: \"https://customer.kubex.ai\"."
-  type        = string
-}
-
-variable "kubex_username" {
-  description = "Kubex login username (typically an email). Used to obtain a bearer token via POST /api/v2/authorize."
-  type        = string
-}
-
-variable "kubex_password" {
-  description = "Kubex login password. Persisted to Terraform state — use an encrypted remote backend in production."
-  type        = string
-  sensitive   = true
-}
-
 variable "connection_name" {
-  description = "Display name for the connection in Kubex. Leave empty to auto-generate as \"<tenancy-name>-terraform\"."
+  description = "Display name for the connection in Kubex. Leave empty to auto-generate as \"<tenancy-name>-tf\"."
   type        = string
   default     = ""
 }

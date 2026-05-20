@@ -39,9 +39,18 @@ module "kubex" {
 
   tenancy_ocid       = var.tenancy_ocid
   region             = var.region
-  kubex_api_base_url = "https://<your-instance>.kubex.ai"
+  kubex_api_base_url = var.kubex_api_base_url
   kubex_username     = var.kubex_username
   kubex_password     = var.kubex_password
+}
+
+variable "tenancy_ocid"           { type = string }
+variable "region"                 { type = string }
+variable "kubex_api_base_url"     { type = string }
+variable "kubex_username"         { type = string }
+variable "kubex_password" { 
+    type = string 
+    sensitive = true 
 }
 ```
 Paste the above snippet into your main.tf and create a terraform.tfvars with the following required values:
@@ -67,14 +76,15 @@ A successful apply ends with:
 ```
 Outputs:
 kubex_action          = "create"
-kubex_connection_id   = "conn-abc123"
-kubex_connection_name = "oracle-cloud"
+kubex_connection_id   = "2905dad4-2fcf-45f1-9a26-4db4ffb15c55"
+kubex_connection_name = "tenancyname-tf"
 kubex_verify_status = {
   account_name   = "..."
   platform       = "OCI"
-  status         = "OK"
+  status         = "true"
   status_details = "..."
 }
+user_ocid = "ocid1.user.oc1..aaaabbbccc"
 ```
 
 See [`examples/single-tenancy/`](examples/single-tenancy/) for more details.
@@ -90,7 +100,7 @@ See [`examples/single-tenancy/`](examples/single-tenancy/) for more details.
 | `kubex_password`            | yes      | —                                | Kubex password (sensitive)                                        
 | `domain_name`               | no       | `Default`                        | Identity Domain to provision into                                 |
 | `service_user_name`         | no       | `kubex-data-collector-tf`           | OCI `user_name` for the service account                           |
-| `service_user_display_name` | no       | `Kubex Data Collector (Terraform)`           | Display (SCIM family) name for the service account                |
+| `service_user_display_name` | no       | `Kubex Data Collector (Terraform)`           | Display name for the service account                |
 | `group_name`                | no       | `kubex-tf`                          | Group name; referenced in policy statements                       |
 | `policy_name`               | no       | `kubex-data-collection-policy-tf`   | IAM policy name                                                   |
 | `user_email`                | no       | `support@kubex.ai`               | Contact email on the service user                                 |
