@@ -13,7 +13,7 @@ variable "region" {
 }
 
 variable "kubex_api_base_url" {
-  description = "Base URL of your Kubex tenant (no trailing slash). Example: \"https://customer.kubex.ai\"."
+  description = "Base URL of your Kubex tenant (no trailing slash). Example: \"https://<your-instance>.kubex.ai\"."
   type        = string
 }
 
