@@ -36,16 +36,3 @@ module "kubex" {
   policy_name               = var.policy_name
   user_email                = var.user_email
 }
-
-output "kubex_action" {
-  description = "Whether the apply created or updated the Kubex connection."
-  value       = module.kubex.kubex_action
-}
-
-output "kubex_connection_id" {
-  value = module.kubex.kubex_connection_id
-}
-
-output "kubex_verify_status" {
-  value = module.kubex.kubex_verify_status
-}
