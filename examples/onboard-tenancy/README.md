@@ -2,7 +2,7 @@
 
 Onboards one OCI tenancy to Kubex.
 
-## Run it
+## How to run
 
 From OCI Cloud Shell (signed in as a tenancy admin):
 

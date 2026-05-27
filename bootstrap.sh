@@ -7,17 +7,17 @@
 # session configured.
 #
 # Usage:
-#   curl -fsSL https://raw.githubusercontent.com/densify-dev/terraform-oci-kubex-onboarding/v0.1.0/bootstrap.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/densify-dev/terraform-oci-kubex-onboarding/v0.2.0/bootstrap.sh | bash
 #
 # Flags:
-#   --ref <git-ref>   Module ref to pin (tag, branch, or commit). Default: v0.1.0
+#   --ref <git-ref>   Module ref to pin (tag, branch, or commit). Default: v0.2.0
 #   --dir <path>      Target directory. Default: ./kubex-onboarding
 #   --force           Overwrite existing files in the target directory
 
 set -euo pipefail
 
 REPO_URL="https://github.com/densify-dev/terraform-oci-kubex-onboarding.git"
-REF="v0.1.0"
+REF="v0.2.0"
 TARGET_DIR="kubex-onboarding"
 FORCE=0
 
