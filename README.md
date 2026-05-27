@@ -20,7 +20,13 @@ generated inside Terraform and pushed directly to Kubex via API.
 
 ## Quickstart
 
-This module is meant to be invoked from a small root configuration that supplies the OCI provider. Below is a simple root configuration.
+This module is meant to be invoked from a small root configuration that supplies the OCI provider. Run the bootstrap.sh file to automatically setup the required files (main.tf, variables.tf, outputs.tf, terraform.tfvars), then edit the tfvars to use your credentials
+
+```
+curl -fsSL https://raw.githubusercontent.com/densify-dev/terraform-oci-kubex-onboarding/v0.2.0/bootstrap.sh | bash
+```
+
+Alternatively, a simple root configuration is provided below that can be used for manual setup:
 
 ```hcl
 terraform {
@@ -35,7 +41,7 @@ provider "oci" {
 }
 
 module "kubex" {
-  source = "git::https://github.com/densify-dev/terraform-oci-kubex-onboarding.git?ref=v0.1.0"   # or local path
+  source = "git::https://github.com/densify-dev/terraform-oci-kubex-onboarding.git?ref=v0.2.0"   # or local path
 
   tenancy_ocid       = var.tenancy_ocid
   region             = var.region
